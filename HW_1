@@ -1,0 +1,92 @@
+--Q1
+select ProductID, Name, Color, ListPrice
+from Production.Product
+
+--Q2
+select ProductID, Name, Color, ListPrice
+from Production.Product
+where ListPrice = 0
+
+--Q3
+select ProductID, Name, Color, ListPrice
+from Production.Product
+where Color is null
+
+--Q4
+select ProductID, Name, Color, ListPrice
+from Production.Product
+where Color is not null
+
+--Q5
+select ProductID, Name, Color, ListPrice
+from Production.Product
+where Color is not null and ListPrice > 0
+
+--Q6
+select Name, Color
+from Production.Product
+where Color is not null 
+
+--Q7
+select 'NAME' + ':'+Name as name, 'COLOR'+ ':'+Color as color
+from Production.Product
+
+--Q8
+select ProductID, Name
+from Production.Product
+where ProductID between 400 and 500
+
+--Q9
+select ProductID, Name, Color
+from Production.Product
+where Color = 'black' or Color = 'blue'
+
+--Q10
+select Name
+from Production.Product
+where Name like 's%'
+
+--Q11
+select Name, ListPrice
+from Production.Product
+order by Name
+
+--Q12
+select Name, ListPrice
+from Production.Product
+where Name like 's%'or Name like 'a%' 
+order by Name
+
+--Q13
+select Name, ListPrice
+from Production.Product 
+where Name like 'SPO[^K]%' 
+order by Name
+
+--Q14
+select distinct Color
+from Production.Product
+order by 1 desc
+
+--Q15
+select distinct ProductSubcategoryID, Color
+from Production.Product
+where ProductSubcategoryID is not null and Color is not null
+
+--16
+SELECT ProductSubCategoryID
+      , LEFT([Name],35) AS [Name]
+      , Color, ListPrice 
+FROM Production.Product
+WHERE Color IN ('Red','Black') 
+      OR ListPrice BETWEEN 1000 AND 2000 
+      AND ProductSubCategoryID = 1
+ORDER BY 1
+
+--Q17
+SELECT ProductSubCategoryID
+      , LEFT([Name],35) AS [Name]
+      , Color, ListPrice 
+FROM Production.Product
+where Color is not null
+order by 1 desc, 2 desc 
