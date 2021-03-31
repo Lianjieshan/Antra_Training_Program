@@ -30,6 +30,7 @@ where Color is not null
 --Q7
 select 'NAME' + ':'+Name as name, 'COLOR'+ ':'+Color as color
 from Production.Product
+Where color is not null
 
 --Q8
 select ProductID, Name
@@ -88,5 +89,7 @@ SELECT ProductSubCategoryID
       , LEFT([Name],35) AS [Name]
       , Color, ListPrice 
 FROM Production.Product
-where Color is not null
-order by 1 desc, 2 desc 
+where Color is not null and ListPrice >539 and ProductSubCategoryID <15
+and name not like 'ML%'
+order by 1 desc, 4 desc
+
